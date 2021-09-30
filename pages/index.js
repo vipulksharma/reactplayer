@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
 
       <main>
-      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' pip={true}/>
+      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' pip={true} stopOnUnmount={false}/>
       </main>
 
       <footer>
