@@ -11,6 +11,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <a href="https://tiket.com">Click me</a>
       <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' pip={true} stopOnUnmount={false}/>
       </main>
 
