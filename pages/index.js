@@ -18,13 +18,13 @@ export default function Home() {
           <source src="https://dawchihliou.github.io/react-use-pip/video-sample.mp4" />
         </video>
       </div>
-      {
+      {isPictureInPictureAvailable && (
         <button
           onClick={() => togglePictureInPicture(!isPictureInPictureActive)}
         >
           {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in Picture
         </button>
-      }
+      )}
     </div>
   )
 }
