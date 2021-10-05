@@ -13,16 +13,18 @@ export default function Home() {
 
   return (
     <div className="App">
-      <video ref={videoRef} autoPlay muted controls loop width="100%">
-        <source src="https://dawchihliou.github.io/react-use-pip/video-sample.mp4" />
-      </video>
-      {isPictureInPictureAvailable && (
+      <div>
+        <video ref={videoRef} autoPlay muted controls loop width="100%">
+          <source src="https://dawchihliou.github.io/react-use-pip/video-sample.mp4" />
+        </video>
+      </div>
+      {
         <button
           onClick={() => togglePictureInPicture(!isPictureInPictureActive)}
         >
           {isPictureInPictureActive ? 'Disable' : 'Enable'} Picture in Picture
         </button>
-      )}
+      }
     </div>
   )
 }
