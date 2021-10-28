@@ -77,7 +77,7 @@ export default class ReactPlayerDemo extends Component {
                 // this.handleTogglePIP();
             }
         }
-        if (window.app && window.app.tiketTogglePIP(true)) {
+        if (window.app.tiketTogglePIP()) {
             window.location.href = 'https://m.tiket.com/login';
         }
         // if (this.getMobileOperatingSystem() === 'iOS' || this.getMobileOperatingSystem() === 'Android') {
