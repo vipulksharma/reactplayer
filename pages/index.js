@@ -75,6 +75,7 @@ alert('on location change');
         //     alert('user is already logged in');
         //     return;
         // }
+        alert('is called');
         if (ReactPlayer.canEnablePIP(this.state.url)) {
             this.handleTogglePIP();
         } else {
@@ -83,13 +84,17 @@ alert('on location change');
                 if (window["app"]) {
                     window["app"].tiketTogglePIP(true);
                 }
+                else {
+                  alert('bridge not found');
+                }
             } else {
                 this.handleTogglePIP();
             }
         }
-        
+        alert(this.getMobileOperatingSystem());
         
         if (this.getMobileOperatingSystem() === 'iOS' || this.getMobileOperatingSystem() === 'Android') {
+          alert('is called 1');
             window.location.href = 'https://m.tiket.com/login';
             // App to intercept this call and check login and get login done and return event which we use to fetch username.
         }
