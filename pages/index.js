@@ -87,7 +87,7 @@ export default class ReactPlayerDemo extends Component {
             // if logged in
             // based on event data from app call login api to get user details.
             this.handleTogglePIP();
-            sessionStorage.token = event.detail.token;
+            // sessionStorage.token = event.detail.token;
             if (this.getMobileOperatingSystem() === 'Android'){
                 //call android bridge to enable pip
                 if (window["app"]) {
@@ -118,9 +118,7 @@ export default class ReactPlayerDemo extends Component {
         <button onClick={this.checkLogin}>{
             pip ? 'Disable PIP' : 'Enable PIP'
         }</button>
-        {
-            sessionStorage.token && <div>User logged in already</div>
-        }
+        
       </div>
     )
   }
