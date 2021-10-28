@@ -61,7 +61,7 @@ export default class ReactPlayerDemo extends Component {
         //     return;
         // }
         if (ReactPlayer.canEnablePIP(this.state.url)) {
-            this.handleTogglePIP();
+            // this.handleTogglePIP();
             
             
         } else {
@@ -74,10 +74,9 @@ export default class ReactPlayerDemo extends Component {
                   alert('bridge not found');
                 }
             } else {
-                this.handleTogglePIP();
+                // this.handleTogglePIP();
             }
         }
-        console.log(window.app && window.app.tiketTogglePIP(true));
         if (window.app && window.app.tiketTogglePIP(true)) {
             window.location.href = 'https://m.tiket.com/login';
         }
