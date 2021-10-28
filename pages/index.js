@@ -75,7 +75,6 @@ alert('on location change');
         //     alert('user is already logged in');
         //     return;
         // }
-        alert('is called');
         if (ReactPlayer.canEnablePIP(this.state.url)) {
             this.handleTogglePIP();
         } else {
@@ -91,13 +90,11 @@ alert('on location change');
                 this.handleTogglePIP();
             }
         }
-        alert(this.getMobileOperatingSystem());
         
-        if (this.getMobileOperatingSystem() === 'iOS' || this.getMobileOperatingSystem() === 'Android') {
-          alert('is called 1');
+        // if (this.getMobileOperatingSystem() === 'iOS' || this.getMobileOperatingSystem() === 'Android') {
             window.location.href = 'https://m.tiket.com/login';
             // App to intercept this call and check login and get login done and return event which we use to fetch username.
-        }
+        // }
 
         window.addEventListener('TL_SET_TOKEN', (event) => {
             // if logged in
