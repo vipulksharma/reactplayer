@@ -15,38 +15,15 @@ export default class ReactPlayerDemo extends Component {
                 this.handleTogglePIP();
             }
         });
+        var currentUrl = location.href;
 
-        var oldHref = document.location.href;
-
-        window.onload = function() {
-
-            var
-                bodyList = document.querySelector("body")
-
-                ,observer = new MutationObserver(function(mutations) {
-
-                    mutations.forEach(function(mutation) {
-
-                        if (oldHref != document.location.href) {
-
-                            oldHref = document.location.href;
-                          alert('url has changed')
-                            /* Changed ! your code here */
-
-                        }
-
-                    });
-
-                });
-
-            var config = {
-                childList: true,
-                subtree: true
-            };
-
-            observer.observe(bodyList, config);
-
-        };
+        window.addEventListener("beforeunload", function (event) {
+          if (document.referrer) {
+            alert(document.referrer);
+          };
+          alert('in here');
+          //your code goes here on location change 
+       });
     }
 
     getMobileOperatingSystem = () => {
