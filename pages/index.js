@@ -68,7 +68,7 @@ export default class ReactPlayerDemo extends Component {
             if (this.getMobileOperatingSystem() === 'Android'){
                 //call android bridge to enable pip
                 if (window["app"]) {
-                    window["app"].tiketTogglePIP(true);
+                    // window["app"].tiketTogglePIP(true);
                 }
                 else {
                   alert('bridge not found');
