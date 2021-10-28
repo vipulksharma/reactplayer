@@ -16,20 +16,37 @@ export default class ReactPlayerDemo extends Component {
             }
         });
 
-        window.addEventListener('popstate', (event) => {
-            alert('The Version doesn support bridge', JSON.stringify(event.state));
-        });
+        var oldHref = document.location.href;
 
-        // window.addEventListener('beforeunload', (event) => {
-        //   alert('listen to before unload event', JSON.stringify(event));
-        //   // Cancel the event as stated by the standard.
-        //   event.preventDefault();
-        //   // Chrome requires returnValue to be set.
-        //   event.returnValue = '';
-        // });
-        window.addEventListener('locationchange', () => {
-alert('on location change');
-        })
+        window.onload = function() {
+
+            var
+                bodyList = document.querySelector("body")
+
+                ,observer = new MutationObserver(function(mutations) {
+
+                    mutations.forEach(function(mutation) {
+
+                        if (oldHref != document.location.href) {
+
+                            oldHref = document.location.href;
+                          alert('url has changed')
+                            /* Changed ! your code here */
+
+                        }
+
+                    });
+
+                });
+
+            var config = {
+                childList: true,
+                subtree: true
+            };
+
+            observer.observe(bodyList, config);
+
+        };
     }
 
     getMobileOperatingSystem = () => {
