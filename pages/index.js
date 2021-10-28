@@ -19,6 +19,13 @@ export default class ReactPlayerDemo extends Component {
         window.addEventListener('popstate', (event) => {
             alert('The Version doesn support bridge', JSON.stringify(event.state));
         });
+        window.addEventListener('beforeunload', (event) => {
+          // Cancel the event as stated by the standard.
+          event.preventDefault();
+          // Chrome requires returnValue to be set.
+          event.returnValue = '';
+          alert('listen to before unload event', JSON.stringify(event));
+        });
     }
 
     getMobileOperatingSystem = () => {
