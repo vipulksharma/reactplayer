@@ -15,16 +15,6 @@ export default class ReactPlayerDemo extends Component {
                 this.handleTogglePIP();
             }
         });
-        var currentUrl = location.href;
-
-        window.addEventListener("beforeunload", function (event) {
-          if (document.referrer) {
-            alert(document.referrer);
-          };
-          alert('in here');
-          return false;
-          //your code goes here on location change 
-       });
     }
 
     getMobileOperatingSystem = () => {
@@ -72,6 +62,8 @@ export default class ReactPlayerDemo extends Component {
         // }
         if (ReactPlayer.canEnablePIP(this.state.url)) {
             this.handleTogglePIP();
+            
+            
         } else {
             if (this.getMobileOperatingSystem() === 'Android'){
                 //call android bridge to enable pip
@@ -85,9 +77,12 @@ export default class ReactPlayerDemo extends Component {
                 this.handleTogglePIP();
             }
         }
-        
-        // if (this.getMobileOperatingSystem() === 'iOS' || this.getMobileOperatingSystem() === 'Android') {
+        console.log(window.app && window.app.tiketTogglePIP(true));
+        if (window.app && window.app.tiketTogglePIP(true)) {
             window.location.href = 'https://m.tiket.com/login';
+        }
+        // if (this.getMobileOperatingSystem() === 'iOS' || this.getMobileOperatingSystem() === 'Android') {
+            
             // App to intercept this call and check login and get login done and return event which we use to fetch username.
         // }
 
@@ -123,10 +118,10 @@ export default class ReactPlayerDemo extends Component {
             stopOnUnmount={false} 
             playsinline={true}
         />
-        <button onClick={this.checkLogin}>{
+        <a  onClick={this.checkLogin}>{
             pip ? 'Disable PIP' : 'Enable PIP'
-        }</button>
-        
+        }</a>
+       
       </div>
     )
   }
