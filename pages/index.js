@@ -22,6 +22,7 @@ export default class ReactPlayerDemo extends Component {
             alert(document.referrer);
           };
           alert('in here');
+          return false;
           //your code goes here on location change 
        });
     }
