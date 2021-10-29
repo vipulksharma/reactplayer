@@ -79,6 +79,8 @@ export default class ReactPlayerDemo extends Component {
         }
         if (window["app"] && window.app.tiketTogglePIP) {
             window.location.href = 'https://m.tiket.com/login';
+        } else {
+            alert('bridge not found bro');
         }
         // if (this.getMobileOperatingSystem() === 'iOS' || this.getMobileOperatingSystem() === 'Android') {
             
