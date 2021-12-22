@@ -15,6 +15,13 @@ export default class ReactPlayerDemo extends Component {
                 this.handleTogglePIP();
             }
         });
+
+        window.addEventListener('onAppDetailsReceived', (event) => {
+            console.log(`Received message: ${event}`);
+            console.log(JSON.stringify(event))
+        });
+        window.appDetails.getAppDetails()
+        
     }
 
     getMobileOperatingSystem = () => {
@@ -77,7 +84,7 @@ export default class ReactPlayerDemo extends Component {
                 // this.handleTogglePIP();
             }
         }
-        if (window["app"] && window.app.tiketTogglePIP) {
+        if (this.getMobileOperatingSystem() === 'Android' && window["app"] && window.app.tiketTogglePIP) {
             window.location.href = 'https://m.tiket.com/login';
         } else {
             alert('bridge not found bro');
@@ -127,3 +134,11 @@ export default class ReactPlayerDemo extends Component {
     )
   }
 }
+
+
+
+
+
+
+
+
