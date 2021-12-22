@@ -20,7 +20,7 @@ export default class ReactPlayerDemo extends Component {
             console.log(`Received message: ${event}`);
             console.log(JSON.stringify(event))
         });
-        window.appDetails.getAppDetails()
+        window?.appDetails?.getAppDetails()
         
     }
 
