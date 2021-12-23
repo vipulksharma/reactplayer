@@ -21,6 +21,7 @@ export default class ReactPlayerDemo extends Component {
             console.log(JSON.stringify(event))
         });
         window?.appDetails?.getAppDetails()
+        window?.app?.tiketTogglePIP(true);
         
     }
 
