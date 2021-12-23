@@ -16,13 +16,14 @@ export default class ReactPlayerDemo extends Component {
             }
         });
 
-        window.addEventListener('onAppDetailsReceived', (event) => {
-            console.log(`Received message: ${event}`);
-            console.log(JSON.stringify(event))
-        });
         window?.appDetails?.getAppDetails()
         window?.app?.tiketTogglePIP(true);
         
+    }
+    componentWillMount() {
+        window.onAppDetailsReceived = function(data) {
+            console.log(data);
+        }
     }
 
     getMobileOperatingSystem = () => {
