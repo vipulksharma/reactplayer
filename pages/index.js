@@ -16,15 +16,25 @@ export default class ReactPlayerDemo extends Component {
             }
         });
 
-        window?.appDetails?.getAppDetails()
-        window?.app?.tiketTogglePIP(true);
+        window.addEventListener('onAppDetailsReceived', (event) => {
+            console.log(`Received message: ${event}`);
+            console.log(JSON.stringify(event))
+
+        });
+        try {
+            window?.appDetails?.getAppDetails()
+        } catch(e) {
+            console.log(e);
+        }
+        
+        // window?.app?.tiketTogglePIP(true);
         
     }
-    componentWillMount() {
-        window.onAppDetailsReceived = function(data) {
-            console.log(data);
-        }
-    }
+    // componentWillMount() {
+    //     window.onAppDetailsReceived = function(data) {
+    //         console.log(data);
+    //     }
+    // }
 
     getMobileOperatingSystem = () => {
         let standalone = window.navigator.standalone,
