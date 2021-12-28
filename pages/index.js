@@ -17,22 +17,15 @@ export default class ReactPlayerDemo extends Component {
         });
 
         window.addEventListener('onAppDetailsReceived', (event, data) => {
-            console.log(event, data);
+            console.log(event.detail);
         });
+        
         try {
             window?.appDetails?.getAppDetails()
         } catch(e) {
             console.log(e);
         }
-        
-        // window?.app?.tiketTogglePIP(true);
-        
     }
-    // componentWillMount() {
-    //     window.onAppDetailsReceived = function(data) {
-    //         console.log(data);
-    //     }
-    // }
 
     getMobileOperatingSystem = () => {
         let standalone = window.navigator.standalone,
