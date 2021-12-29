@@ -19,9 +19,14 @@ export default class ReactPlayerDemo extends Component {
         window.addEventListener('onAppDetailsReceived', (event, data) => {
             console.log(event.detail);
         });
-        
+
         try {
-            window?.appDetails?.getAppDetails()
+            if (window.webkit) {
+                window?.webkit?.messageHandlers?.getAppDetails?.postMessage?.(null)
+            } else {
+                window?.appDetails?.getAppDetails()
+            }
+            
         } catch(e) {
             console.log(e);
         }
