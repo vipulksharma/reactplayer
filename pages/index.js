@@ -30,6 +30,9 @@ export default class ReactPlayerDemo extends Component {
         } catch(e) {
             console.log(e);
         }
+
+
+
     }
 
     getMobileOperatingSystem = () => {
@@ -137,6 +140,8 @@ export default class ReactPlayerDemo extends Component {
         <a  onClick={this.checkLogin}>{
             pip ? 'Disable PIP' : 'Enable PIP'
         }</a>
+
+        <a href='https://input-poc-ashish.vercel.app/'>Go to another link from here</a>
        
       </div>
     )
