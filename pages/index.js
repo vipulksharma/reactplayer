@@ -20,16 +20,32 @@ export default class ReactPlayerDemo extends Component {
             console.log(event.detail);
         });
 
+        window.addEventListener('onUserAuthenticationDetailsReceived', (event, data) => {
+            console.log(event.detail);
+        });
+
         try {
             if (window.webkit) {
                 window?.webkit?.messageHandlers?.getAppDetails?.postMessage?.(null)
             } else {
-                window?.appDetails?.getAppDetails()
+                window?.native?.getAppDetails()
             }
             
         } catch(e) {
             console.log(e);
         }
+
+        try {
+            if (window.webkit) {
+                window?.webkit?.messageHandlers?.getUserAuthenticationDetails?.postMessage?.(null)
+            } else {
+                window?.native?.getUserAuthenticationDetails()
+            }
+            
+        } catch(e) {
+            console.log(e);
+        }
+
 
 
 
