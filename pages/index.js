@@ -10,19 +10,6 @@ export default class ReactPlayerDemo extends Component {
         playing: true,
     } 
     componentDidMount() {
-        window.addEventListener('TL_NATIVE_BUTTON_PRESS', (event) => {
-            if (event && event.detail && event.detail.isPIP && ReactPlayer.canEnablePIP(this.state.url)) {
-                this.handleTogglePIP();
-            }
-        });
-
-        window.addEventListener('onAppDetailsReceived', (event, data) => {
-            console.log(event.detail);
-        });
-
-        window.addEventListener('onUserAuthenticationDetailsReceived', (event, data) => {
-            console.log(event.detail);
-        });
 
         try {
             if (window.webkit) {
@@ -37,9 +24,9 @@ export default class ReactPlayerDemo extends Component {
 
         try {
             if (window.webkit) {
-                window?.webkit?.messageHandlers?.getUserAuthenticationDetails?.postMessage?.(null)
+                window?.webkit?.messageHandlers?.logWebApi?.postMessage?.("{\"uri\":\"https://mockable.tiket.com/rest\",\"query\":\"some_query=some_value\",\"method\":\"GET\",\"reqPayloadSize\":23,\"respPayloadSize\":2223,\"respCode\":200,\"respTime\":54,\"exception\":\"-\",\"businessCode\":\"SUCCESS\",\"businessMsg\":\"SUCCESS\"}")
             } else {
-                window?.native?.getUserAuthenticationDetails()
+                window.native?.logWebApi("{\"uri\":\"https://mockable.tiket.com/rest\",\"query\":\"some_query=some_value\",\"method\":\"GET\",\"reqPayloadSize\":23,\"respPayloadSize\":2223,\"respCode\":200,\"respTime\":54,\"exception\":\"-\",\"businessCode\":\"SUCCESS\",\"businessMsg\":\"SUCCESS\"}")
             }
             
         } catch(e) {
@@ -94,45 +81,45 @@ export default class ReactPlayerDemo extends Component {
         //     alert('user is already logged in');
         //     return;
         // }
-        if (ReactPlayer.canEnablePIP(this.state.url)) {
-            // this.handleTogglePIP();
+        // if (ReactPlayer.canEnablePIP(this.state.url)) {
+        //     // this.handleTogglePIP();
             
             
-        } else {
-            if (this.getMobileOperatingSystem() === 'Android'){
-                //call android bridge to enable pip
-                if (window["app"]) {
-                    // window["app"].tiketTogglePIP(true);
-                }
-                else {
-                  alert('bridge not found');
-                }
-            } else {
-                // this.handleTogglePIP();
-            }
-        }
-        if (this.getMobileOperatingSystem() === 'Android' && window["app"] && window.app.tiketTogglePIP) {
-            window.location.href = 'https://m.tiket.com/login';
-        } else {
-            alert('bridge not found bro');
-        }
+        // } else {
+        //     if (this.getMobileOperatingSystem() === 'Android'){
+        //         //call android bridge to enable pip
+        //         if (window["app"]) {
+        //             // window["app"].tiketTogglePIP(true);
+        //         }
+        //         else {
+        //           alert('bridge not found');
+        //         }
+        //     } else {
+        //         // this.handleTogglePIP();
+        //     }
+        // }
+        // if (this.getMobileOperatingSystem() === 'Android' && window["app"] && window.app.tiketTogglePIP) {
+        //     window.location.href = 'https://m.tiket.com/login';
+        // } else {
+        //     alert('bridge not found bro');
+        // }
         // if (this.getMobileOperatingSystem() === 'iOS' || this.getMobileOperatingSystem() === 'Android') {
             
             // App to intercept this call and check login and get login done and return event which we use to fetch username.
         // }
 
-        window.addEventListener('TL_SET_TOKEN', (event) => {
-            // if logged in
-            // based on event data from app call login api to get user details.
-            this.handleTogglePIP();
-            // sessionStorage.token = event.detail.token;
-            if (this.getMobileOperatingSystem() === 'Android'){
-                //call android bridge to enable pip
-                if (window["app"]) {
-                    window["app"].tiketTogglePIP(false);
-                } 
-            } 
-        });            
+        // window.addEventListener('TL_SET_TOKEN', (event) => {
+        //     // if logged in
+        //     // based on event data from app call login api to get user details.
+        //     this.handleTogglePIP();
+        //     // sessionStorage.token = event.detail.token;
+        //     if (this.getMobileOperatingSystem() === 'Android'){
+        //         //call android bridge to enable pip
+        //         if (window["app"]) {
+        //             window["app"].tiketTogglePIP(false);
+        //         } 
+        //     } 
+        // });            
     }
 
      
